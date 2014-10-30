@@ -1,0 +1,2 @@
+FORMAT_HDFS=true
+INITIALIZE_HDFS=true
