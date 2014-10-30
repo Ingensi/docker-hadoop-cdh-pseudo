@@ -5,6 +5,11 @@ Docker container which contains a Cloudera distribution in pseudo distributed. I
 * *HDFS*: 1 namenode and 1 datanode
 * *YARN*: 1 resourcemanager, 1 nodemanager and 1 historyserver (mapreduce)
 
+*WARNING*: This docker image can be *useful to speed up your developments* but it *should not be used in critical/production environments* for two main reasons:
+
+* it does not provide a fully distributed cluster
+* because it runs many hadoop processes, this image does not respect the docker "best practice" about `One container = One process`
+
 # Run instruction
 
 The docker run command has to be written according to your specific needs. Here is the pattern to follow:
@@ -73,3 +78,7 @@ All hadoop ports are exposed by default. You can map some ports to your host by 
 * *MAPREDUCE historyserver*
   * `10020` (TCP): mapreduce.jobhistory.address
   * `19888` (TCP): mapreduce.jobhistory.webapp.address
+
+# Oracle license
+
+This container includes an Oracle JDK. By using this container, you accept the Oracle Binary Code License Agreement for Java SE available here: http://www.oracle.com/technetwork/java/javase/terms/license/index.html
