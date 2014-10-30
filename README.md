@@ -1,6 +1,6 @@
-# docker-cdh-pseudo-distributed
+# docker-cdh-pseudo
 
-Docker container which contains a Cloudera distribution in pseudo distributed. It provides au pseudo distributed Hadoop cluster with the following services: 
+Docker container which contains a Cloudera distribution in pseudo distributedi mode. It provides au pseudo distributed Hadoop cluster with the following services: 
 
 * *HDFS*: 1 namenode and 1 datanode
 * *YARN*: 1 resourcemanager, 1 nodemanager and 1 historyserver (mapreduce)
@@ -33,7 +33,7 @@ docker run -d \
 # bind ports with the host (see port mapping)
   -p 8020:8020 \n \
 
-ingensi/cdh-pseudo-distributed
+ingensi/hadoop-cdh-pseudo
 ```
 
 ## Container configuration
