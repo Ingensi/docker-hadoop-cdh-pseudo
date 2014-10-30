@@ -1,4 +1,4 @@
-FROM ingensi/cdh-base:cdh5
+FROM ingensi/hadoop-cdh-base:cdh5
 MAINTAINER Ingensi labs <contact@ingensi.com>
 
 # INSTALL PSEUDO DISTRIBUTED CDH
