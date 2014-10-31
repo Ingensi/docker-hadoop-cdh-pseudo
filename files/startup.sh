@@ -4,11 +4,15 @@
 
 if ${FORMAT_HDFS}; then
   # format namenode
+  echo "# FORMATING NAMENODE
+#####"
   su -c "echo 'N' | hdfs namenode -format" hdfs
 fi
 
 if ${INITIALIZE_HDFS}; then
   # 1 start hdfs
+  echo "# INITIALIZING HDFS
+#####"
   su -c "hdfs datanode  2>&1 > /var/log/hadoop-hdfs/hadoop-hdfs-datanode.log" hdfs&
   su -c "hdfs namenode  2>&1 > /var/log/hadoop-hdfs/hadoop-hdfs-namenode.log" hdfs&
 
@@ -23,7 +27,11 @@ if ${INITIALIZE_HDFS}; then
 fi
 
 # copy hadoop confs
+echo "# OVERWRITING HADOOP CONF
+#####"
 cp -rf /tmp/hadoop_conf/* /etc/hadoop/conf/
 
 # run supervisord
+echo "# RUN SUPERVISORD
+#####"
 exec supervisord -c /etc/supervisord.conf

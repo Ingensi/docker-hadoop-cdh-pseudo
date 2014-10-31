@@ -2,7 +2,8 @@ FROM ingensi/hadoop-cdh-base:cdh5
 MAINTAINER Ingensi labs <contact@ingensi.com>
 
 # INSTALL PSEUDO DISTRIBUTED CDH
-RUN yum install -y hadoop-conf-pseudo
+RUN yum clean all \
+&& yum install -y hadoop-conf-pseudo
 
 # INSTALL SUPERVISORD
 RUN yum install -y python-setuptools \
@@ -16,6 +17,7 @@ ADD files/supervisord.d/* /etc/supervisord.d/
 
 # Add SUPERVISORD BOOTSTRAP SCRIPT
 ADD files/bootstrap.sh /root/bootstrap.sh
+RUN chmod +x /root/bootstrap.sh
 
 # ADD STARTUP SCRIPT
 ADD files/startup.sh /root/startup.sh
